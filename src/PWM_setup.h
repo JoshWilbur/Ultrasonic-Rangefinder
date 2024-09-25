@@ -6,4 +6,4 @@
 void write_PWM_file(const char *path, int value);
 void setup_PWM(void);
 
-#endif PWM_SET_H
+#endif

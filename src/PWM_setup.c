@@ -23,9 +23,13 @@ void setup_PWM(void){
                 exit(1);
         }
 
+	// Constants for period and duty cycle (ns)
+	const int period = 50000000; // 50ms/20Hz
+	const int duty = period * 0.2; // 20% duty cycle
+
 	// File paths for PWM on my RPi 0W
 	write_PWM_file("/sys/class/pwm/pwmchip0/export", 0); // Enable PWM channel 0
-	write_PWM_file("/sys/class/pwm/pwmchip0/pwm0/period", 20000000); // 20ms
-	write_PWM_file("/sys/class/pwm/pwmchip0/pwm0/duty_cycle", 1000000); // 1ms (5% duty cycle)
+	write_PWM_file("/sys/class/pwm/pwmchip0/pwm0/period", period);
+	write_PWM_file("/sys/class/pwm/pwmchip0/pwm0/duty_cycle", duty);
 	write_PWM_file("/sys/class/pwm/pwmchip0/pwm0/enable", 1);
 }
