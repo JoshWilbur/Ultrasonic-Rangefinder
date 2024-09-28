@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -g
 
 # Source and header files
-SRCS = main.c PWM_setup.c
+SRCS = main.c PWM_setup.c ssd_1306.c
 OBJS = $(SRCS:.c=.o)
 
 # Output executable name
