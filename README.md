@@ -3,6 +3,7 @@
 Description coming soon
 
 Connections (RPi 0W): VCC = 5V, GND = 0V, TRIG = GPIO18, ECHO = GPIO6, SCL = GPIO5, SDA = GPIO3
+Compile display with: gcc ssd_1306.c fontx.c -o s -lwiringPi
 
 # TODO
 
