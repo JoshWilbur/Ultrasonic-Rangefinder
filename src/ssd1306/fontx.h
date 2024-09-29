@@ -1,4 +1,3 @@
-// NOTE: This file was not authored by the team. Credit goes to nopnop2002 on GitHub.
 #define FontxGlyphBufSize	(32*32/8)
 
 typedef struct {

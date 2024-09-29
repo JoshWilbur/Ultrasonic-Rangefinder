@@ -1,6 +1,3 @@
-// NOTE: This file was not authored by the team. Credit goes to nopnop2002 on GitHub.
-// If time avails, we will try to write a custom driver for the display
-
 /*
  SSD1606 example
 
