@@ -7,10 +7,9 @@ Compile display with: gcc ssd_1306.c fontx.c -o s -lwiringPi
 
 # TODO
 
-* Setup development environment, hardware and Pi (make schematic?)
-* Program to trigger sensor with PWM (Josh, DONE)
+* Make schematic, update block diagrams (Josh)
+* Impliment display code into main function (Josh)
 * Program to input readings from sensor (Siddhartha)
 * Program to process readings, output avg. distance, mean, std (both)
-* Code to drive I2C display, use external library?
 * Move makefile out of src, header files to /inc
 * 3D print case? If so, ask Amir for help
