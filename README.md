@@ -1,12 +1,13 @@
 # Ultrasonic-Rangefinder
-
 Description coming soon
 
-Connections (RPi 0W): VCC = 5V, GND = 0V, TRIG = GPIO18, ECHO = GPIO6, SCL = GPIO5, SDA = GPIO3
-Compile display with: gcc ssd_1306.c fontx.c -o s -lwiringPi
+Connections (RPi 0W): VCC = 5V, GND = 0V, TRIG = GPIO18, ECHO = GPIO6, SCL = GPIO5, SDA = GPIO3 \
+
+The SSD1306 code library was created by nopnop2002. A link to their repository is below.\
+https://github.com/nopnop2002/Raspberry-ssd1306
 
 # TODO
-
+* ADD PHOTOS OF DISPLAY AND SENSOR WORKING
 * Make schematic, update block diagrams (Josh)
 * Impliment display code into main function (Josh)
 * Program to input readings from sensor (Siddhartha)
