@@ -1,5 +1,11 @@
 #include "common_libs.h"
 
+// Function prototype
+void run_OLED(char *const argv[]);
+void reset_OLED(void);
+void text_OLED(char *line, char *text);
+void show_OLED(void);
+
 // Referenced COS331 HW2
 // This program forks a new process to run the OLED executable
 void run_OLED(char *const argv[]){
@@ -25,33 +31,39 @@ void run_OLED(char *const argv[]){
 	}
 }
 
-int main(int argc, char *argv[]) {
-	// Arrays to hold arguments to run display
-	char *args1[] = {
+// This function will reset the OLED display
+void reset_OLED(void){
+        char *args_reset[] = {
 	        "./oled",
-	        "r",
+		"r",
 		NULL
-	};
+        };
+	printf("Resetting display...\n");
+	run_OLED(args_reset);
+}
 
-	char *args2[] = {
+// This function displays text to the OLED display
+void text_OLED(char *line, char *text){
+	char *args_text[] = {
 		"./oled",
 		"+1",
 		"test",
 		NULL
-	};
+        };
 
-	char *args3[] = {
-	        "./oled",
-		"s",
-		NULL
-	};
+	args_text[1] = line;
+	args_text[2] = text;
+	printf("Outputting text to display\n");
+	run_OLED(args_text);
+}
 
-	// Run arguments in order to get desired output
-	run_OLED(args1);
-	sleep(1);
-	run_OLED(args2);
-	sleep(1);
-	run_OLED(args3);
+void show_OLED(void){
+        char *args_show[] = {
+                "./oled",
+                "s",
+                NULL
+        };
 
-	return 0;
+	printf("Showing text on display\n");
+	run_OLED(args_show);
 }

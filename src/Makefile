@@ -3,11 +3,11 @@ CC = gcc
 CFLAGS = -Wall -Wextra -g
 
 # Source and header files
-SRCS = main.c PWM_setup.c
+SRCS = main.c PWM_setup.c display.c
 OBJS = $(SRCS:.c=.o)
 
 # Output executable name
-EXEC = US_dist
+EXEC = US_range
 
 # Make process
 all: $(EXEC)

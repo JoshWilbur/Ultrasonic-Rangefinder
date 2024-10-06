@@ -19,7 +19,7 @@ void write_PWM_file(const char *path, int value){
 void setup_PWM(void){
         // Confirm root user is running program since config files are modified
         if (geteuid() != 0) {
-                printf( "Please run as root");
+                printf("Please run as root\n");
                 exit(1);
         }
 
