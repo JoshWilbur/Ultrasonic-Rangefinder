@@ -7,9 +7,7 @@ The SSD1306 code library was created by nopnop2002. A link to their repository i
 https://github.com/nopnop2002/Raspberry-ssd1306
 
 # TODO
-* ADD PHOTOS OF DISPLAY AND SENSOR WORKING
-* Make schematic, update block diagrams (Josh)
-* Impliment display code into main function (Josh)
+* Make schematic?
 * Program to input readings from sensor (Siddhartha)
 * Program to process readings, output avg. distance, mean, std (both)
 * Move makefile out of src, header files to /inc

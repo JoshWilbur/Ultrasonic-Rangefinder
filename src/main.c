@@ -9,7 +9,9 @@ int main(){
 	// OLED code
         reset_OLED();
         sleep(1);
-        text_OLED("+1", "hello world");
+        text_OLED("+1", "ECE498");
+	text_OLED("+2", "U.S. Rangefinder");
+	text_OLED("+3", "Sid & Josh");
         sleep(1);
         show_OLED();
 
