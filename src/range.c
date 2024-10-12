@@ -1,15 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <pigpio.h>
-#include <unistd.h>
+#include "inc/common_libs.h"
 
-#define TRIG  23  // GPIO 23 for Trigger
-#define ECHO  24  // GPIO 24 for Echo
+//#define TRIG  23  // GPIO 23 for Trigger
+//#define ECHO  24  // GPIO 24 for Echo
 
-void setup() {
+// For RPi 0:
+#define TRIG  18  // GPIO 18 for Trigger
+#define ECHO  6  // GPIO 6 for Echo
 
-    gpioInitialise() < 0; // Initialize pgpio library
-    
+// Function prototypes
+void setup_gpio(void);
+double getDistance(void);
+
+void setup_gpio(void){
+
+    gpioInitialise(); // Initialize pgpio library
+
     gpioSetMode(TRIG, PI_OUTPUT);  // Set TRIG pin as OUTPUT
     gpioSetMode(ECHO, PI_INPUT);   // Set ECHO pin as INPUT
 
@@ -18,7 +23,7 @@ void setup() {
     usleep(30000);  // Wait for sensor to settle
 }
 
-double getDistance() {
+double getDistance(void) {
 
     // Send a 10 microsecond pulse to TRIG
     gpioWrite(TRIG, PI_ON);
@@ -32,7 +37,7 @@ double getDistance() {
 	   return -1;
  	}
     }
-	
+
     uint32_t startTime = gpioTick();
 
     // Wait for the ECHO pin to go low and stop timing
@@ -47,26 +52,7 @@ double getDistance() {
 
     // Calculate distance in cm (speed of sound is 34300 cm/s)
     double distance = (travelTime / 2.0) / 29.1;
+    if (distance < 0 || distance > 400) distance = -1; // Send invalid distance if error
     return distance;
 
 }
-
-int main(void) {
-    setup();
-
-    while (1) {
-        double distance = getDistance();
-
-        if (distance < 0 || distance > 400) {
-            printf("Out of range or invalid measurement\n");
-        } else {
-            printf("Distance: %.2f cm\n", distance);
-        }
-
-        sleep(1);  // Wait for a second before the next measurement
-    }
-
-    gpioTerminate();  // Clean up pigpio resources
-    return 0;
-}
-

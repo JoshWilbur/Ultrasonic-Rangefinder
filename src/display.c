@@ -1,4 +1,4 @@
-#include "common_libs.h"
+#include "inc/common_libs.h"
 
 // Function prototype
 void run_OLED(char *const argv[]);
