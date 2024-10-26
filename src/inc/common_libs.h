@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <wiringPiI2C.h>
 #include <sys/wait.h>
 
 #endif

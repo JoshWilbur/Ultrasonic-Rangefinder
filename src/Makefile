@@ -1,9 +1,9 @@
 # Compiler choice and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -g -lrt -lpigpio -Iinc
+CFLAGS = -Wall -Wextra -g -lrt -lpigpio -lwiringPi -Iinc
 
 # Source and header files
-SRCS = main.c display.c range.c
+SRCS = main.c range.c ssd1306.c
 OBJS = $(SRCS:.c=.o)
 
 # Output executable name
