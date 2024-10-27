@@ -4,8 +4,8 @@
 //#define ECHO  24  // GPIO 24 for Echo
 
 // For RPi 0:
-#define TRIG  23  // GPIO 18 for Trigger
-#define ECHO  24  // GPIO 6 for Echo
+#define TRIG  18  // GPIO 18 for Trigger
+#define ECHO  6  // GPIO 6 for Echo
 
 // Function prototypes
 void setup_gpio(void);
