@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -g -lrt -lpigpio -lwiringPi -Iinc -lm
 
 # Source and header files
-SRCS = main.c range.c ssd1306.c reading.c
+SRCS = main.c range.c ssd1306.c user_input.c reading.c
 OBJS = $(SRCS:.c=.o)
 
 # Output executable name

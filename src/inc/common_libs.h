@@ -7,7 +7,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <math.h>
+
 #include <wiringPiI2C.h>
 #include <sys/wait.h>
+#include <sys/ioctl.h>
 
 #endif

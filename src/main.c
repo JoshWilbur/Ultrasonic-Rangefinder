@@ -2,7 +2,7 @@
 #include "inc/range.h"
 #include "inc/ssd1306.h"
 #include "inc/reading.h"
-#include <pigpio.h>
+#include "inc/user_input.h"
 
 #define SWITCH_PIN 17
 
@@ -14,21 +14,23 @@ int main(){
         }
 
 	setup_gpio();
+	input_setup();
 
 	// Setup for display
 	ssd1306_begin(SSD1306_SWITCHCAPVCC, SSD1306_I2C_ADDRESS);
-	ssd1306_setTextSize(2);
 
 	double distance_cm, distance_in;
-	double distances[2]; // An array storing 3 values of distances 
+	double distances[2]; // An array storing 3 values of distances
 	int count = 0;
+	int sw = 0;
 
 	// Obtain readings every second and update display
 	while(1){
 		distance_cm = getDistance();
-		distance_in = distance_cm / 2.54; // Convert to inches 
+		distance_in = distance_cm / 2.54; // Convert to inches
+		sw = read_input();
 
-		if (gpioRead(SWITCH_PIN) == 1){    // Check if switch is closed
+		if (sw == 1){    // Check if switch is closed
 			distances[count] = distance_cm;
 			count++;
 
