@@ -1,6 +1,10 @@
 #include "inc/common_libs.h"
 #include "inc/range.h"
 #include "inc/ssd1306.h"
+#include "inc/reading.h"
+#include <pigpio.h>
+
+#define SWITCH_PIN 17
 
 int main(){
 	// Confirm root user is running program
@@ -16,24 +20,27 @@ int main(){
 	ssd1306_setTextSize(2);
 
 	double distance_cm, distance_in;
-	char cm_buf[32];
-	char in_buf[32];
+	double distances[2]; // An array storing 3 values of distances 
+	int count = 0;
 
 	// Obtain readings every second and update display
 	while(1){
 		distance_cm = getDistance();
-		distance_in = distance_cm / 2.54; // Convert to inches
-		snprintf(cm_buf, sizeof(cm_buf), "%.2f cm\n", distance_cm);
-		snprintf(in_buf, sizeof(in_buf), "%.2f in", distance_in);
+		distance_in = distance_cm / 2.54; // Convert to inches 
 
-		// Display readings
-		ssd1306_clearDisplay();
-		ssd1306_drawString("Distance\n");
-		ssd1306_drawString(cm_buf);
-		ssd1306_drawString(in_buf);
-		ssd1306_display();
+		if (gpioRead(SWITCH_PIN) == 1){    // Check if switch is closed
+			distances[count] = distance_cm;
+			count++;
 
-		usleep(1000);
+			if (count == 2) {
+				display_statistics(distances, 2);
+				count = 0;
+				usleep(3000000); // Wait three seconds to process 3 distance measurements
+			}
+		} else {
+			display_distance(distance_cm, distance_in);
+			usleep(1000);
+		}
 	}
 
 	gpioTerminate();  // Clean up pigpio resources
