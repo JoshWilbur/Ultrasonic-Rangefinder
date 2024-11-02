@@ -1,5 +1,7 @@
 Line, Vendor, Vendor Part Number, Description, Total Cost
 1, Adafruit, 3400, Raspberry Pi 0W, $15.00
 2, Adafruit, 3942, HC-SR04 ultrasonic sensor module, $3.95
-3, Digikey, SSD1306, 0.96 inch I2C OLED display, $5.50
-4, N/A, N/A, jumper wires and prototyping board, $0.00
+3, Adafruit, 805, SPDT slide switch, $0.95
+4, Digikey, SSD1306, 0.96 inch I2C OLED display, $5.50
+5, N/A, N/A, jumper wires and prototyping board, $0.00
+6, N/A, N/A, USB power supply, $0.00

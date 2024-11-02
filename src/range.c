@@ -25,9 +25,9 @@ void setup_gpio(void){
 
 double getDistance(void) {
 
-    // Send a 10 microsecond pulse to TRIG
+    // Send a 100 microsecond pulse to TRIG
     gpioWrite(TRIG, PI_ON);
-    usleep(10);  // Send pulse for 10 microseconds
+    usleep(100);  // Send pulse for 100 microseconds
     gpioWrite(TRIG, PI_OFF);
 
     // Wait for the ECHO pin to go high and start timing

@@ -30,11 +30,11 @@ void display_statistics(double *distances, int count) {
 
     char mean_buf[32];
     char stddev_buf[32];
-    snprintf(mean_buf, sizeof(mean_buf), "Avg:%.2f cm", mean);
-    snprintf(stddev_buf, sizeof(stddev_buf), "StdDev:%.2f cm", stddev);
+    snprintf(mean_buf, sizeof(mean_buf), "M:%.1fcm\n", mean);
+    snprintf(stddev_buf, sizeof(stddev_buf), "SD:%.2fcm", stddev);
 
     // Print out to display
-    ssd1306_setTextSize(1);
+    ssd1306_setTextSize(2);
     ssd1306_clearDisplay();
     ssd1306_drawString(mean_buf);
     ssd1306_drawString("\n");
