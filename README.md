@@ -4,7 +4,7 @@ A short distance ultrasonic rangefinder utilizing a Raspberry Pi 0 and HC-SR04 s
 
 ![Soldered prototype](images/final_prototype.jpg)
 
-https://github.com/iliapenev/ssd1306_i2c
+Link to display library: https://github.com/iliapenev/ssd1306_i2c
 
 # TODO
 * Benchmark and record results in a table
