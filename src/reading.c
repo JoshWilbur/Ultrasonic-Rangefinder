@@ -21,7 +21,7 @@ void display_statistics(double *distances, int count) {
     for (int i = 0; i < count; i++) {  // For loop to add all the measured distances in 3 seconds
         sum += distances[i]; // Sum for the mean
     }
-    mean = sum / count; // Calcaute the mean
+    mean = sum / count; // Calculate the mean
 
     for (int i = 0; i < count; i++) {
         stddev += pow(distances[i] - mean, 2); // Sum of the squared deviations
